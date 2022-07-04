@@ -20,7 +20,7 @@ include_once '../models/Dbh.models.php';
       $num =$result->rowCount();
       if ($num > 0){
         $post_arr = array();
-        $post_arr['data'] = array();
+        $post_arr['blogs'] = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
@@ -30,7 +30,7 @@ include_once '../models/Dbh.models.php';
                 'author' => $author,
                 'body' => $body
             );
-            array_push($post_arr['data'], $post_item);
+            array_push($post_arr['blogs'], $post_item);
         }
         echo json_encode($post_arr);
     }else{
